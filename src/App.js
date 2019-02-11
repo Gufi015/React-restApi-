@@ -5,7 +5,10 @@ const User = (props) => (
   <ul>
     <li>Usuarios: {props.name}</li>
     <li>Password: {props.email}</li>
+    <li>Image: {props.picture}</li>
+    <img src={props.picture} width="100" height="100"></img>
   </ul>
+
 )
 
 class App extends Component {
@@ -23,7 +26,8 @@ class App extends Component {
         let data = {
           name:user.name.first,
           email:user.email,
-          password:user.login.password
+          password:user.login.password,
+          picture:user.picture.large
         }
         console.log('aqui van los datos de los usuarios del rest api ' + data)
         this.setState({users:this.state.users.concat([data])})
@@ -37,7 +41,7 @@ class App extends Component {
     if(this.state.users.length > 0){
       return(
         <div>
-          {this.state.users.map(user => <User key={user.password} name={user.name} email={user.email}/>)}
+          {this.state.users.map(user => <User key={user.password} name={user.name} email={user.email} picture={user.picture}/>)}
         </div>
       )
     }
