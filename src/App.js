@@ -4,7 +4,7 @@ import './App.css';
 const User = (props) => (
   <ul>
     <li>Usuarios: {props.name}</li>
-    <li>Password: {props.email}</li>
+    <li>Email: {props.email}</li>
     <li>Image: {props.picture}</li>
     <img src={props.picture} width="100" height="100"></img>
   </ul>
@@ -41,7 +41,7 @@ class App extends Component {
     if(this.state.users.length > 0){
       return(
         <div>
-          {this.state.users.map(user => <User key={user.password} name={user.name} email={user.email} picture={user.picture}/>)}
+          {this.state.users.map(user => <User key={user.password} name={user.name} email={user.email} picture={user.picture} />)}
         </div>
       )
     }
